@@ -10,9 +10,9 @@
     "url": "https://github.com/OfficeDev/microsoft-teams-library-js"
   },
   "scripts": {
-    "build": "yarn lint && webpack",
+    "build": "eslint ./src/**/*.ts && webpack",
     "lint": "eslint ./src/**/*.ts",
-    "doctor": "yarn lint --fix",
+    "doctor": "eslint ./src/**/*.ts --fix",
     "prettier": "prettier --write '**/*.{ts,js,css,html}'",
     "test": "jest"
   },
