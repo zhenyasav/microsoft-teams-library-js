@@ -1,9 +1,7 @@
 const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const libraryName = 'microsoftTeams';
-var plugins = [];
 const DtsBundlePlugin = require('./generate-dts');
-plugins.push(new DtsBundlePlugin());
 
 module.exports = {
   entry: {
@@ -13,9 +11,9 @@ module.exports = {
   output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist'),
-    library: libraryName,
-    libraryTarget: 'umd',
-    umdNamedDefine: true,
+    // library: libraryName,
+    libraryTarget: 'commonjs',
+    // umdNamedDefine: true,
   },
   devtool: 'source-map',
   resolve: {
@@ -44,5 +42,7 @@ module.exports = {
       }),
     ],
   },
-  plugins: plugins,
+  plugins: [
+    new DtsBundlePlugin()
+  ],
 };
